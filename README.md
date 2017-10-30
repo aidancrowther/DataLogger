@@ -29,3 +29,13 @@ Description:
       - Navigate to the installation folder, and install [piVirtualWire](https://github.com/DzikuVx/piVirtualWire)
       - Download and install pigpio and MySQLDB using `sudo apt-get install python3-pigpio python3-MySQLdb`
       - Enable pigpio on boot by using `sudo systemctl enable pigpiod`
+
+   - Arduino Install:
+      - Modify transmitter.ino for your sensors
+      - Upload transmitter.ino to you Arduino
+      
+  Usage:
+  
+   - Run the logger using `python3 logger.py`
+    - Use `-v` to enable verbose output
+    - Use `-c` to specify a file containing db permissions
