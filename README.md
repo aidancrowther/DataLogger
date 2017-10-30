@@ -1,4 +1,4 @@
-#Arduino Data Logger
+# Arduino Data Logger
 
 Description:
   This project is designed to allow an arduino based data logger to collect weather data outdoors, while actively updating a local database to provide real time weather data. Data is collected, and uploaded to a DataBase server using a raspberry Pi as an intermediary.
@@ -19,10 +19,13 @@ Description:
   
   - Arduino Pro Mini with sensors for measuring wanted data
   - RF link receiver/transmitter pair
-  - Raspberry Pi with pigpio, MySQLDB, and virtual wire libraries installed
+  - Raspberry Pi with pigpio, MySQLdb, and virtual wire libraries installed
   - Database server with an appropriate table
   
   Install:
   
-  - Clone repository using `git clone https://www.github.com/aidancrowther/DataLogger`
-  - Navigate to the installation folder, and install [piVirtualWire](https://github.com/DzikuVx/piVirtualWire)
+    - Raspberry Pi Install:
+      - Clone repository using `git clone https://www.github.com/aidancrowther/DataLogger`
+      - Navigate to the installation folder, and install [piVirtualWire](https://github.com/DzikuVx/piVirtualWire)
+      - Download and install pigpio and MySQLDB using `sudo apt-get install python3-pigpio python3-MySQLdb`
+      - Enable pigpio on boot by using `sudo systemctl enable pigpiod`
