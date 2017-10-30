@@ -24,7 +24,7 @@ Description:
   
   Install:
   
-    - Raspberry Pi Install:
+   - Raspberry Pi Install:
       - Clone repository using `git clone https://www.github.com/aidancrowther/DataLogger`
       - Navigate to the installation folder, and install [piVirtualWire](https://github.com/DzikuVx/piVirtualWire)
       - Download and install pigpio and MySQLDB using `sudo apt-get install python3-pigpio python3-MySQLdb`
