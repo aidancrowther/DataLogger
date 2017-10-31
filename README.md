@@ -31,6 +31,7 @@ Description:
       - Enable pigpio on boot by using `sudo systemctl enable pigpiod`
 
    - Arduino Install:
+      - Install libraries for [LowPower](https://github.com/rocketscream/Low-Power), [BMP085](https://github.com/adafruit/Adafruit-BMP085-Library), [DHT](https://github.com/RobTillaart/Arduino/tree/master/libraries/DHTlib), and [VirtualWire](https://www.pjrc.com/teensy/td_libs_VirtualWire.html)
       - Modify transmitter.ino for your sensors
       - Upload transmitter.ino to you Arduino
       
