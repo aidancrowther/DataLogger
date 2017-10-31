@@ -49,3 +49,10 @@ Description:
    dbhost='IP/name of database server'
    table='table to write to'
    ```
+
+  If a permissions file is not specified at run time, the default filename `certs.txt` will be used. If no appropriate permissions file can be found, the program will not run.
+  
+  The assumed format of the database table is as follows:
+  
+  created | temperature | pressure | humidex | light | battery
+  automatically incrementing datetime element | measured temperature | measured pressure | measured humidity | measured light level | logger battery level
