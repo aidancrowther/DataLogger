@@ -113,6 +113,8 @@ while True:
 		sendToDB(result);
 		if(verbose): print('\nWaiting for data...');
 
+	time.sleep(0.01);
+
 #Close piVirtualWire and pigpio
 rx.cancel();
 pi.stop();
