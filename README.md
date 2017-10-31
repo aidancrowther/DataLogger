@@ -42,9 +42,10 @@ Description:
    - Run the data logger and ensure it is within range of the receiver
    
    The format for the permissions file should follow:
-   `dbuser='username'
-    dbpass='password'
-    dbname='database name'
-    dbhost='IP/name of database server'
-    table='table to write to'
-   `
+   ```
+   dbuser='username'
+   dbpass='password'
+   dbname='database name'
+   dbhost='IP/name of database server'
+   table='table to write to'
+   ```
