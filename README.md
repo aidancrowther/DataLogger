@@ -1,7 +1,7 @@
 # Arduino Data Logger
 
 Description:
-  This project is designed to allow an arduino based data logger to collect weather data outdoors, while actively updating a local database to provide real time weather data. Data is collected, and uploaded to a DataBase server using a raspberry Pi as an intermediary.
+  This project is designed to allow an arduino based data logger to collect weather data outdoors, while actively updating a local database to provide real time weather data. Data is collected, and uploaded to a DataBase server using a raspberry Pi as an intermediary. The Arduino has been modified to operate between 3.0-4.2V in order to run directly off of an 18650 Li-Ion battery; this allows the logger to run for many months just off of the battery level. The Arduino has also been setup to minimize power draw, consuming less than ~1mA between measurements, and never exceeding ~15mA while transmitting for a few seconds.
   
   Current Features:
   
@@ -39,3 +39,12 @@ Description:
    - Run the logger using `python3 logger.py`
     - Use `-v` to enable verbose output
     - Use `-c` to specify a file containing db permissions
+   - Run the data logger and ensure it is within range of the receiver
+   
+   The format for the permissions file should follow:
+   `dbuser='username'
+    dbpass='password'
+    dbname='database name'
+    dbhost='IP/name of database server'
+    table='table to write to'
+   `
