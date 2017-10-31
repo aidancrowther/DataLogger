@@ -55,5 +55,5 @@ Description:
   The assumed format of the database table is as follows:
   
   created | temperature | pressure | humidex | light | battery
-  ------- | ------- | ------- | ------- | ------- | ------- | 
+  ------- | ------- | ------- | ------- | ------- | -------
   automatically incrementing datetime element | measured temperature | measured pressure | measured humidity | measured light level | logger battery level
