@@ -5,9 +5,11 @@
 #include <LowPower.h>
 #include <avr/sleep.h>
    
+//Initialize sensor datatypes
 Adafruit_BMP085_Unified bmp = Adafruit_BMP085_Unified(10085);
 dht DHT;
 
+//Specify pins and variables
 #define DHT11_PIN 2
 #define PowerPin 9
 
