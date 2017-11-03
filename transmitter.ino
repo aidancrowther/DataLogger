@@ -62,6 +62,7 @@ void loop(){
   sensors_event_t event;
   bmp.getEvent(&event);
 
+  //Get temperature data as a float from the BMP085 sensor
   float temperature;
   bmp.getTemperature(&temperature);
 
@@ -70,8 +71,9 @@ void loop(){
   char msg[30];
   String message;
 
-  //Once pressure data has arrived, prepare the message, identifying the logger by a node name 'N1'
+  //Once pressure data has arrived, prepare the message
   if(event.pressure){
+    //Start the message using the node identifier 'N1'
     message = "N1: "
     + String((int) temperature, DEC) + "," 
     + String((int) DHT.humidity, DEC) + ","
@@ -80,29 +82,32 @@ void loop(){
     + String(batteryLevel, DEC);
   }
   else{
+    //If the sensor receives an error, send a warning
     message = "Sensor Error";
     //Serial.println("Sensor Error");
   }
 
-  //specify message length for sending
+  //Specify message length for sending
   int msgLength = message.length()+1;
 
   //Serial.println(message);
   
+  //Convert the message to a character array
   message.toCharArray(msg, msgLength);
 
   digitalWrite(13, true); // Flash a light to show transmitting
   vw_send((uint8_t *)msg, msgLength);
   vw_wait_tx(); // Wait until the whole message is gone
   digitalWrite(13, false);
-  digitalWrite(PowerPin, 1);
-  sleepForMinutes(10);
+  digitalWrite(PowerPin, 1); //Turn off the sensors to save power
+  sleepForMinutes(10); //Sleep the system for 10 minutes between readings
 }
 
 //Go into low power mode and sleep for a specified number of minutes
 void sleepForMinutes(int i){
   i = 7*i;
   for(int time=0; time<=i; time++){
+    //Go to sleep for 8 seconds
     LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);  
   }
 }
