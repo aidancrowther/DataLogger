@@ -47,7 +47,6 @@ if(verbose): print('Done!');
 
 #Convert the received message from an array of ASCII values to a string
 def convertMessage(message):
-
 	result = [];
 
 	#Convert each character back to ASCII text
@@ -60,7 +59,6 @@ def convertMessage(message):
 
 #Split the message into an array of numeric values from the logger
 def processResult(message):
-
 	result = '';
 	#Trim out the node identifier 'N1' and generate the array
 	message = message.split(': ');
@@ -69,7 +67,6 @@ def processResult(message):
 
 #Send received data to the database server
 def sendToDB(values):
-
 	connected = False;
 
 	if(verbose): print('Connecting to DataBase...');
@@ -84,7 +81,6 @@ def sendToDB(values):
 		if(verbose): print('Unable to connect, aborting write!');
 
 	if(connected):
-
 		if(verbose): print('Connected!\nWriting data...');
 
 		#Insert the received values into the sql query and write it to the database
@@ -101,10 +97,8 @@ if(verbose): print('Waiting for data...');
 
 #Main running loop
 while True:
-
 	#Wait for a message from the RF receiver
 	while rx.ready():
-
 		#Convert the received message and upload it to the database
 		received_message = convertMessage(rx.get());
 		result = processResult(received_message);
@@ -112,7 +106,6 @@ while True:
 		if(verbose): print('writing to DB');
 		sendToDB(result);
 		if(verbose): print('\nWaiting for data...');
-
 	time.sleep(0.01);
 
 #Close piVirtualWire and pigpio
