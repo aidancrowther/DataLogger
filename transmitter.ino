@@ -13,6 +13,9 @@ dht DHT;
 #define DHT11_PIN 2
 #define PowerPin 9
 
+//Specify altitude above sea level to correct pressure readings
+#define Altitude 90
+
 volatile bool adcDone;
 
 ISR(ADC_vect) { adcDone = true; }
@@ -73,6 +76,9 @@ void loop(){
 
   //Once pressure data has arrived, prepare the message
   if(event.pressure){
+     //correct the pressure for sealevel
+     int pressure = (event.pressure/pow(1-(Altitude/44330.0),5.255));
+     
     //Start the message using the node identifier 'N1'
     message = "N1: "
     + String((int) temperature, DEC) + "," 
